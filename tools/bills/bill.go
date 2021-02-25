@@ -71,7 +71,7 @@ func VerifyBillID(billParams BillParams) bool {
 	controlBit := newBillId[len(newBillId)-1:]
 	newBillId = newBillId[:len(newBillId)-1]
 
-	c := CalTheBit(newBillId)
+	c := calTheBit(newBillId)
 	controlInt, _ := strconv.Atoi(controlBit)
 	result = c == controlInt
 
@@ -100,7 +100,7 @@ func GetCurrency(billParams BillParams) int {
 	return amount
 }
 
-func CalTheBit(num string) int {
+func calTheBit(num string) int {
 	sum := 0
 	Base := 2
 	for i := 0; i < len(num); i++ {
