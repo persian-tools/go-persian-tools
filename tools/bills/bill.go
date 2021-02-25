@@ -1,7 +1,6 @@
 package bills
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -55,7 +54,6 @@ func GetBillType(billParams BillParams) string {
 	billIdString := strconv.Itoa(billParams.BillId)
 	billIdLen := len(billIdString)
 	billId, _ := strconv.Atoi(billIdString[billIdLen-2 : billIdLen-1])
-	fmt.Printf("\n %v \n", billId)
 	if billId == 0 {
 		return bills(10).bType
 	}
