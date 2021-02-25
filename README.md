@@ -5,5 +5,5 @@
 	<h1 align="center">Persian tools</h1>
 	<p align="center">An anthology of a variety of tools for the Persian language in Golang</p>
 </div>
-[![Build Status](https://travis-ci.com/nimahkh/persian_tools.svg?branch=master)](https://travis-ci.com/nimahkh/persian_tools)
+<img src="https://travis-ci.com/nimahkh/persian_tools.svg?branch=master"/>
 <hr />
