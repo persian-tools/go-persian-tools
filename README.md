@@ -11,18 +11,19 @@
 
 <hr />
 
-#### Todos 
-- [x] Bill calculator 
-- [x] Digits 
-- [ ] Validate Bank card number.
-- [ ] Find Bank's name by Card number.
-- [ ] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code. 
-- [ ] Add and remove commas to numbers. 
-- [ ] Find city and province name by national code(code-e Melli). 
-- [ ] Validate Iranian national number(code-e Melli). 
+#### Todos
 
+- [x] Bill calculator
+- [x] Digits
+- [x] Validate Bank card number.
+- [x] Find Bank's name by Card number.
+- [ ] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
+- [ ] Add and remove commas to numbers.
+- [ ] Find city and province name by national code(code-e Melli).
+- [ ] Validate Iranian national number(code-e Melli).
 
 #### How to use it?
+
 first we have to create our request :
 
 ```go
@@ -33,6 +34,7 @@ bills "github.com/nimahkh/persian_tools/tools/bills"
 currencyParam := bills.Currency{false, false}
 params := bills.BillParams{1117753200140, 12070160, currency_param, "1"}
 ```
+
 And pass it
 
 ##### Bills
@@ -44,6 +46,7 @@ barcode := bills.GetBarCode(params) //  111775320014000012070160
 verify := bills.VerifyBillID(params) //true
 
 ```
+
 ##### Digits
 
 ```go
@@ -52,3 +55,18 @@ num2wordEn := digits.DigitToWord("156789") // صد پنجاه و شش هزار �
 Negative := digits.DigitToWord("-156789") // منفی صد پنجاه و شش هزار هفتصد هشتاد و نه 
 ```
 
+#### Bank
+
+###### CardInfo Method
+
+This method has two key : `bankName` and `isValid`
+If the bank account number is not valid, bankName will be empty
+
+```go
+card:= Card{Number:"6219861034529008"}
+falseResult := card.CardInfo() // { false} -> bankName: "", isValid:  false
+card= Card{Number:"6037701689095443"}
+bankKeshavarzi := card.CardInfo() // {بانک کشاورزی true} -> bankName: "بانک کشاورزی", isValid:  true
+card= Card{Number:"6219861034529007"}
+bankSaman := card.CardInfo() // {بانک سامان true} -> bankName: "بانک سامان", isValid:  true
+```
