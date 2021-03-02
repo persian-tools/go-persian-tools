@@ -17,7 +17,7 @@
 - [x] Digits
 - [x] Validate Bank card number.
 - [x] Find Bank's name by Card number.
-- [ ] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
+- [X] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
 - [ ] Add and remove commas to numbers.
 - [ ] Find city and province name by national code(code-e Melli).
 - [ ] Validate Iranian national number(code-e Melli).
@@ -69,4 +69,27 @@ card= Card{Number:"6037701689095443"}
 bankKeshavarzi := card.CardInfo() // {بانک کشاورزی true} -> bankName: "بانک کشاورزی", isValid:  true
 card= Card{Number:"6219861034529007"}
 bankSaman := card.CardInfo() // {بانک سامان true} -> bankName: "بانک سامان", isValid:  true
+```
+
+###### Check Iranian Sheba
+The types of results are :
+
+```go
+type shebaResultHash struct {
+	Name                   string
+	Code                   string
+	NickName               string
+	PersianName            string
+	AccountNumber          string
+	AccountNumberAvailable bool
+	FormattedAccountNumber string
+	Process                func(str string) ShebaProcess
+}
+```
+
+```go
+shebaCode := bank.ShebaCode{"IR820540102680020817909002"}
+sheba := shebaCode.IsSheba() // {Parsian Bank 054 parsian بانک پارسیان  true  0x4c69f0}
+shebaCode.Code= "IR820540102680020817909003"
+sheba := shebaCode.IsSheba() // {  false }
 ```
