@@ -22,3 +22,18 @@ func TestDigitToWord(t *testing.T) {
 		t.Errorf("Wrong Convert : %v", result3)
 	}
 }
+
+func TestAddCommas(t *testing.T) {
+	addComma := AddCommas(14555478854)
+	if addComma != "14,555,478,854" {
+		t.Errorf("Wrong Convert : %v", addComma)
+	}
+}
+
+func TestRemoveCommas(t *testing.T) {
+	removeComma := RemoveCommas("4,555,522,212,12")
+	if removeComma != 455552221212 {
+		t.Errorf("Wrong Convert : %v", removeComma)
+	}
+
+}
