@@ -5,9 +5,9 @@ import (
 )
 
 type IPlaceByNationalId struct {
-	codes    []string
-	city     string
-	province string
+	Codes    []string
+	City     string
+	Province string
 }
 
 func getAllCities(code string) []nationalCode {
@@ -51,9 +51,9 @@ func GetPlaceByIranNationalId(nationalId string) IPlaceByNationalId {
 			}
 
 			return IPlaceByNationalId{
-				city:     allCities[0].city,
-				province: findProvince.city,
-				codes:    makeCodes,
+				City:     allCities[0].city,
+				Province: findProvince.city,
+				Codes:    makeCodes,
 			}
 		}
 		return IPlaceByNationalId{}
