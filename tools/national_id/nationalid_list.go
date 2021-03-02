@@ -1,4 +1,4 @@
-package city
+package national_id
 
 type nationalCode struct {
 	code       string
