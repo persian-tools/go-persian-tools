@@ -18,7 +18,7 @@
 - [x] Validate Bank card number.
 - [x] Find Bank's name by Card number.
 - [X] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
-- [ ] Add and remove commas to numbers.
+- [X] Add and remove commas to numbers.
 - [ ] Find city and province name by national code(code-e Melli).
 - [ ] Validate Iranian national number(code-e Melli).
 
@@ -92,4 +92,14 @@ shebaCode := bank.ShebaCode{"IR820540102680020817909002"}
 sheba := shebaCode.IsSheba() // {Parsian Bank 054 parsian بانک پارسیان  true  0x4c69f0}
 shebaCode.Code= "IR820540102680020817909003"
 sheba := shebaCode.IsSheba() // {  false }
+```
+
+###### Add Remove Commas to number
+
+```go
+addComma := digits.AddCommas(14555478854)
+removeComma := digits.RemoveCommas("4,555,522,212,12")
+
+fmt.Printf("\n ADD COMMA : %v \n", addComma) // 14,555,478,854 
+fmt.Printf("\n REMOVE COMMA : %v \n", removeComma)// 455552221212 
 ```
