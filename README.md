@@ -7,7 +7,7 @@
 </div>
 
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
-[![codecov](https://codecov.io/gh/nimahkh/persian_tools/branch/master/graph/badge.svg?token=7D038RFAP9)](https://codecov.io/gh/nimahkh/persian_tools)
+[![codecov](https://codecov.io/gh/persian-tools/go-persian-tools/branch/master/graph/badge.svg?token=7D038RFAP9)](https://codecov.io/gh/persian-tools/go-persian-tools)
 
 <hr />
 
