@@ -19,7 +19,7 @@
 - [x] Find Bank's name by Card number.
 - [X] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
 - [X] Add and remove commas to numbers.
-- [ ] Find city and province name by national code(code-e Melli).
+- [X] Find city and province name by national code(code-e Melli).
 - [ ] Validate Iranian national number(code-e Melli).
 
 #### How to use it?
