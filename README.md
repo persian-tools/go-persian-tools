@@ -19,7 +19,7 @@
 - [x] Find Bank's name by Card number.
 - [X] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
 - [X] Add and remove commas to numbers.
-- [ ] Find city and province name by national code(code-e Melli).
+- [X] Find city and province name by national code(code-e Melli).
 - [ ] Validate Iranian national number(code-e Melli).
 
 #### How to use it?
@@ -102,4 +102,11 @@ removeComma := digits.RemoveCommas("4,555,522,212,12")
 
 fmt.Printf("\n ADD COMMA : %v \n", addComma) // 14,555,478,854 
 fmt.Printf("\n REMOVE COMMA : %v \n", removeComma)// 455552221212 
+```
+
+###### Validate Iranian national number(code-e Melli)
+```go
+getPlaceByIranNationalId := city.GetPlaceByIranNationalId("0499370899")
+fmt.Printf("\n Result : %v \n", getPlaceByIranNationalId)
+
 ```
