@@ -103,3 +103,10 @@ removeComma := digits.RemoveCommas("4,555,522,212,12")
 fmt.Printf("\n ADD COMMA : %v \n", addComma) // 14,555,478,854 
 fmt.Printf("\n REMOVE COMMA : %v \n", removeComma)// 455552221212 
 ```
+
+###### Validate Iranian national number(code-e Melli)
+```go
+getPlaceByIranNationalId := city.GetPlaceByIranNationalId("0499370899")
+fmt.Printf("\n Result : %v \n", getPlaceByIranNationalId)
+
+```
