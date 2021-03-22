@@ -1,4 +1,4 @@
-package digits
+package digit
 
 import (
 	"github.com/dustin/go-humanize"

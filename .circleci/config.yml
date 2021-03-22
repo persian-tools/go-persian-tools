@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Run tests and coverage
-          command: go test -race -coverprofile=coverage.txt -covermode=atomic ./tools/*
+          command: go test -race -coverprofile=coverage.txt -covermode=atomic ./*
       - run:
           name: Upload coverage to Codecov
           command: bash <(curl -s https://codecov.io/bash)
