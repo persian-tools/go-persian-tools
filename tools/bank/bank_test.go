@@ -1,40 +1,31 @@
 package bank
 
-import (
-	"testing"
-)
+import "testing"
 
-func TestCard_CardInfo(t *testing.T) {
-	card := Card{Number: "6219861034529008"}
-	falseResult := card.CardInfo()
-	card = Card{Number: "6037701689095443"}
-	bankKeshavarzi := card.CardInfo()
-	card = Card{Number: "6219861034529007"}
-	bankSaman := card.CardInfo()
-
-	if falseResult.isValid || falseResult.bankName != "" {
-		t.Errorf("Result has to be false : %v", falseResult)
+func TestCardInfo(t *testing.T) {
+	tests := []struct {
+		name    string
+		entry   string
+		want    string
+		wantErr bool
+	}{
+		{name: "not valid 1", entry: "62198610", want: "", wantErr: true},
+		{name: "not valid 2", entry: "603770asdfgbvcfg", want: "", wantErr: true},
+		{name: "not valid 3", entry: "dfgsdg", want: "", wantErr: true},
+		{name: "not valid 4", entry: "6219861034529008", want: "", wantErr: true},
+		{name: "keshavarzi", entry: "6037701689095443", want: "keshavarzi", wantErr: false},
+		{name: "saman", entry: "6219861034529007", want: "saman", wantErr: false},
 	}
-
-	if !bankKeshavarzi.isValid || bankKeshavarzi.bankName != "بانک کشاورزی" {
-		t.Errorf("Result is not correct : %v", bankKeshavarzi)
-	}
-
-	if !bankSaman.isValid || bankSaman.bankName != "بانک سامان" {
-		t.Errorf("Result is not correct : %v", bankSaman)
-	}
-}
-
-func TestShebaCode_IsSheba(t *testing.T) {
-	shebaCode := ShebaCode{"IR820540102680020817909002"}
-	sheba := shebaCode.IsSheba()
-	if sheba.Code != "054" || sheba.Name != "Parsian Bank" || sheba.PersianName != "بانک پارسیان" || !sheba.AccountNumberAvailable {
-		t.Errorf("Result is not correct : %v", sheba)
-	}
-
-	shebaCode.Code = "IR820540102680020817909003"
-	sheba2 := shebaCode.IsSheba()
-	if sheba2.Code != "" || sheba2.Name != "" || sheba2.PersianName != "" || sheba2.AccountNumberAvailable {
-		t.Errorf("Result is not correct : %v", sheba2)
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := CardInfo(tt.entry)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("CardInfo() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("CardInfo() got = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }

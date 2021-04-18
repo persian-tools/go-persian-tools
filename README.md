@@ -59,16 +59,15 @@ Negative := digits.DigitToWord("-156789") // منفی صد پنجاه و شش ه
 
 ###### CardInfo Method
 
-This method has two key : `bankName` and `isValid`
-If the bank account number is not valid, bankName will be empty
+Method has one entry card number and return bank name and error.
 
 ```go
-card:= Card{Number:"6219861034529008"}
-falseResult := card.CardInfo() // { false} -> bankName: "", isValid:  false
-card= Card{Number:"6037701689095443"}
-bankKeshavarzi := card.CardInfo() // {بانک کشاورزی true} -> bankName: "بانک کشاورزی", isValid:  true
-card= Card{Number:"6219861034529007"}
-bankSaman := card.CardInfo() // {بانک سامان true} -> bankName: "بانک سامان", isValid:  true
+bank,error := CardInfo("") // "", error
+bank,error := CardInfo("345345") // "", error
+bank,error := CardInfo("6219861034529008") // "", error
+bank,error := CardInfo("6037701689095443") // keshavarzi, nil
+bank,error := CardInfo("6219861034529007") // saman, nil
+
 ```
 
 ###### Check Iranian Sheba
