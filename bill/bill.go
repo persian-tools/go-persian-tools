@@ -1,4 +1,4 @@
-package bills
+package bill
 
 import (
 	"strconv"
