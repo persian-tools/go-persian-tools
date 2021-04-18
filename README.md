@@ -27,7 +27,7 @@
 first we have to create our request :
 
 ```go
-bills "github.com/nimahkh/persian_tools/tools/bills"
+bills "github.com/nimahkh/persian_tools/bills"
 .
 .
 .
