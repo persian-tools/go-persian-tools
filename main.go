@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/nimahkh/persian_tools/bank"
 	bills "github.com/nimahkh/persian_tools/bill"
 	digits "github.com/nimahkh/persian_tools/digit"
@@ -21,9 +22,8 @@ func main() {
 
 	num2word := digits.DigitToWord("۱۵۶۷۸۹")
 
-	card := bank.Card{Number: "6037701689095443"}
 	shebaCode := bank.ShebaCode{"IR820540102680020817909002"}
-	bankInfo := card.CardInfo()
+	bank, _ := bank.CardInfo("6037701689095443")
 	sheba := shebaCode.IsSheba()
 	getPlaceByIranNationalId := national_id.GetPlaceByIranNationalId("059499370899")
 	addComma := digits.AddCommas(14555478854)
@@ -33,7 +33,7 @@ func main() {
 	fmt.Printf("\n %v \n", num2word)
 	fmt.Printf("\n %v \n", barcode)
 	fmt.Printf("\n %v \n", verify)
-	fmt.Printf("\n Verify : %v \n", bankInfo)
+	fmt.Printf("\n Verify : %v \n", bank)
 	fmt.Printf("\n SHEBA : %v \n", sheba)
 	fmt.Printf("\n ADD COMMA : %v \n", addComma)
 	fmt.Printf("\n REMOVE COMMA : %v \n", removeComma)
