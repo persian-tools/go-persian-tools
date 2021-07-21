@@ -6,6 +6,15 @@ import (
 	"strconv"
 )
 
+var (
+	// ErrBankNotFound is returned by CardInfo function
+	// when bank not found for input card
+	ErrBankNotFound = errors.New("bank not found")
+	// ErrInvalidCard is returned by CardInfo function
+	// when card has invalid format
+	ErrInvalidCard = errors.New("card is not valid")
+)
+
 var bankCode = map[string]string{
 	"636214": "ayandeh",
 	"627412": "eghtesad-novin",
@@ -63,12 +72,12 @@ var bankCode = map[string]string{
 func CardInfo(card string) (string, error) {
 	matched, err := regexp.MatchString("^\\d{16}$", card)
 	if !matched || err != nil || !validateCard(card) {
-		return "", errors.New("data not valid")
+		return "", ErrInvalidCard
 	}
 
 	bank, ok := bankCode[card[0:6]]
 	if !ok {
-		return "", errors.New("bank not found")
+		return "", ErrBankNotFound
 	}
 
 	return bank, nil
