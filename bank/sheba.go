@@ -11,6 +11,11 @@ type ShebaCode struct {
 	Code string
 }
 
+var (
+	ErrIncorrectIBAN = errors.New("IBAN is not correct")
+	ErrInvalidIBAN = errors.New("IBAN has incorrect check digits")
+)
+
 func (s ShebaCode) IsSheba() shebaResultHash {
 	shebaCode := s.Code
 
@@ -34,11 +39,11 @@ func iso7064Mod97_10(iban string) error {
 	modVal := new(big.Int).SetInt64(97)
 	bigVal, success := new(big.Int).SetString(remainder, 10)
 	if !success {
-		return errors.New("IBAN has incorrect check digits")
+		return ErrInvalidIBAN
 	}
 	resVal := new(big.Int).Mod(bigVal, modVal)
 	if resVal.Int64() != 1 {
-		return errors.New("IBAN is not correct")
+		return ErrIncorrectIBAN
 	}
 	return nil
 }
