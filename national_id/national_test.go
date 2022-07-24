@@ -19,11 +19,19 @@ func TestGetPlaceByIranNationalId(t *testing.T) {
 func TestValidate(t *testing.T) {
 	verifyIranianNationalId := Validate("0067749828")
 	verifyIranianNationalIdFalse := Validate("0684159415")
+	verifyIranianNationalExceptionIdTrue := Validate("1111111111")
+	verifyIranianNationalExceptionIdFalse := Validate("9999999999")
 
 	if !verifyIranianNationalId {
 		t.Errorf("Result is false : %v", verifyIranianNationalId)
 	}
 	if verifyIranianNationalIdFalse {
 		t.Errorf("Result is false : %v", verifyIranianNationalIdFalse)
+	}
+	if !verifyIranianNationalExceptionIdTrue {
+		t.Errorf("Result is True : %v", verifyIranianNationalExceptionIdTrue)
+	}
+	if verifyIranianNationalExceptionIdFalse {
+		t.Errorf("Result is false : %v", verifyIranianNationalExceptionIdFalse)
 	}
 }

@@ -5,10 +5,24 @@ import (
 	"strconv"
 )
 
+var notAllowedDigits = map[string]bool{
+	"0000000000": true,
+	"2222222222": true,
+	"3333333333": true,
+	"4444444444": true,
+	"5555555555": true,
+	"6666666666": true,
+	"7777777777": true,
+	"8888888888": true,
+	"9999999999": true,
+}
+
 func Validate(code string) bool {
+	if notAllowedDigits[code] {
+		return false
+	}
 	regexTest, _ := regexp.Compile(`(^\d{10}$)`)
 	match := regexTest.MatchString(code)
-
 	if !match {
 		return false
 	}
