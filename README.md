@@ -21,6 +21,7 @@
 - [X] Add and remove commas to numbers.
 - [X] Find city and province name by national code(code-e Melli).
 - [X] Validate Iranian national number(code-e Melli).
+- [X] Validate and find information of phone number.
 
 #### How to use it?
 
@@ -117,4 +118,13 @@ verifyIranianNationalIdFalse := national_id.Validate("0684159415")
 
 fmt.Printf("\n Validate NationalID : %v \n", verifyIranianNationalId) // true
 fmt.Printf("\n Validate NationalIDFalse : %v \n", verifyIranianNationalIdFalse) // false
+```
+
+###### Validate and find information of phone number.
+```go
+phone_numbers.IsPhoneValid("9122221811") // true
+phone_numbers.GetPhoneDetails("09195431812") // 09373708555 <nil>
+phone_numbers.GetOperatorPrefix("+989373708555") // 937 <nil>
+phone_numbers.GetPrefixDetails("901") // &{کشوری []  Irancell [Credit Permanent]} <nil>
+phone_numbers.GetPhoneDetails("09195431812") // &{تهران [البرز سمنان قم قزوین زنجان]  MCI [Credit]} <nil> 
 ```
