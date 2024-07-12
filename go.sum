@@ -8,6 +8,8 @@ github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25Kn
 github.com/gorilla/mux v1.7.3/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
 github.com/mavihq/persian v0.0.0-20180720112018-07dac0a5e732 h1:aDTrUCLFUtKN+CdvsvQMm7hXnOan6MsY3GHQLkKtc14=
 github.com/mavihq/persian v0.0.0-20180720112018-07dac0a5e732/go.mod h1:JLh+/M/1DlhfTOPJRRygjs9r/t+lr7vPP3OpA+Wax/4=
+github.com/mavihq/persian v0.0.0-20231020110200-3e779b10be51 h1:G6qR/VC7bYzVsGnOfq/upquMJMNzOwNGy5QEPGbrTU0=
+github.com/mavihq/persian v0.0.0-20231020110200-3e779b10be51/go.mod h1:JLh+/M/1DlhfTOPJRRygjs9r/t+lr7vPP3OpA+Wax/4=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
