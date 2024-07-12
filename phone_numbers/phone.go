@@ -17,33 +17,23 @@ func GetPhoneDetails(phoneNumber string) (*OperatorDetails, error) {
 	return GetPrefixDetails(prefix)
 }
 
-// GetPrefixDetails returns the OperatorDetails of the given prefix
 func GetPrefixDetails(prefix string) (*OperatorDetails, error) {
-	for k, v := range MCIMap {
-		if k == prefix {
-			return &v, nil
+	// Define a slice of maps to iterate over
+	operatorsMap := []map[string]OperatorDetails{
+		MCIMap,
+		TALIYA,
+		RIGHTTEL,
+		IRANCELL,
+		SHATELMOBILE,
+	}
+
+	// Iterate over each map and check for the prefix
+	for _, m := range operatorsMap {
+		if details, found := m[prefix]; found {
+			return &details, nil
 		}
 	}
-	for k, v := range TALIYA {
-		if k == prefix {
-			return &v, nil
-		}
-	}
-	for k, v := range RIGHTTEL {
-		if k == prefix {
-			return &v, nil
-		}
-	}
-	for k, v := range IRANCELL {
-		if k == prefix {
-			return &v, nil
-		}
-	}
-	for k, v := range SHATELMOBILE {
-		if k == prefix {
-			return &v, nil
-		}
-	}
+
 	return nil, errors.New("Invalid prefix")
 }
 
