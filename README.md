@@ -17,10 +17,10 @@
 - [x] Digits
 - [x] Validate Bank card number.
 - [x] Find Bank's name by Card number.
-- [X] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
-- [X] Add and remove commas to numbers.
-- [X] Find city and province name by national code(code-e Melli).
-- [X] Validate Iranian national number(code-e Melli).
+- [x] Check Iranian Sheba(IBAN) validation and recognize bank information by sheba code.
+- [x] Add and remove commas to numbers.
+- [x] Find city and province name by national code(code-e Melli).
+- [x] Validate Iranian national number(code-e Melli).
 
 #### How to use it?
 
@@ -40,7 +40,7 @@ And pass it
 ##### Bills
 
 ```go
-result := bills.GetBillType(params) // تلفن ثابت 
+result := bills.GetBillType(params) // تلفن ثابت
 amount := bills.GetCurrency(params) //120000
 barcode := bills.GetBarCode(params) //  111775320014000012070160
 verify := bills.VerifyBillID(params) //true
@@ -50,9 +50,11 @@ verify := bills.VerifyBillID(params) //true
 ##### Digits
 
 ```go
-num2wordFa := digits.DigitToWord("۱۵۶۷۸۹") // صد پنجاه و شش هزار هفتصد هشتاد و نه 
-num2wordEn := digits.DigitToWord("156789") // صد پنجاه و شش هزار هفتصد هشتاد و نه 
-Negative := digits.DigitToWord("-156789") // منفی صد پنجاه و شش هزار هفتصد هشتاد و نه 
+num2wordFa := digits.DigitToWord("۱۵۶۷۸۹") // صد پنجاه و شش هزار هفتصد هشتاد و نه
+num2wordEn := digits.DigitToWord("156789") // صد پنجاه و شش هزار هفتصد هشتاد و نه
+Negative := digits.DigitToWord("-156789") // منفی صد پنجاه و شش هزار هفتصد هشتاد و نه
+englishDigits := PersianToEnglish("۱۲۳۴۵۶۷۸۹۰") // 1234567890
+persianDigits := EnglishToPersian("1234567890") // ۱۲۳۴۵۶۷۸۹۰
 ```
 
 #### Bank
@@ -71,6 +73,7 @@ bank,error := CardInfo("6219861034529007") // saman, nil
 ```
 
 ###### Check Iranian Sheba
+
 The types of results are :
 
 ```go
@@ -99,11 +102,12 @@ sheba := shebaCode.IsSheba() // {  false }
 addComma := digits.AddCommas(14555478854)
 removeComma := digits.RemoveCommas("4,555,522,212,12")
 
-fmt.Printf("\n ADD COMMA : %v \n", addComma) // 14,555,478,854 
-fmt.Printf("\n REMOVE COMMA : %v \n", removeComma)// 455552221212 
+fmt.Printf("\n ADD COMMA : %v \n", addComma) // 14,555,478,854
+fmt.Printf("\n REMOVE COMMA : %v \n", removeComma)// 455552221212
 ```
 
 ###### Get Place and city By NationalID
+
 ```go
 getPlaceByIranNationalId := city.GetPlaceByIranNationalId("0499370899")
 fmt.Printf("\n Result : %v \n", getPlaceByIranNationalId)
@@ -111,6 +115,7 @@ fmt.Printf("\n Result : %v \n", getPlaceByIranNationalId)
 ```
 
 ###### Validate Iranian national number(code-e Melli)
+
 ```go
 verifyIranianNationalId := national_id.Validate("0067749828")
 verifyIranianNationalIdFalse := national_id.Validate("0684159415")
